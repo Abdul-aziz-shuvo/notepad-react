@@ -12,7 +12,7 @@ function App() {
     const newNote = {
       id:uuid(),
       title:'Untitled',
-      body:'',
+      body:'fasdfasfasfasfasfasfasf',
       lastModified:Date.now()
     }
     setNote([newNote,...notes])
@@ -25,17 +25,16 @@ function App() {
     setNote(filterNote)
   }
 
-  // const getActiveNote = () => {
-  //  alert(activeNote);
-
-  //   // eslint-disable-next-line 
-  // let data =  notes.find((note) => note.id == activeNote)
-  // }
-
+  const getActiveNote = () => {
+    const data = notes.find((note) => note.id == activeNote);
+    console.log(data);
+    return data;
+  }
+  getActiveNote()
   return (
     <div className="App">
       <Sidebar notes={notes} addNote={addNote} deleteNote={deleteNote} activeNote={activeNote} setActiveNote={setActiveNote}/>
-      <Main  />
+      <Main  getActiveNote={getActiveNote()}/>
     </div>
   );
 }
