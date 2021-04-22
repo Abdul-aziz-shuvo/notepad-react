@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown'
 export default function Main({getActiveNote,updateNote}){
     const changeNote = (key,value) => {
         
@@ -18,9 +19,9 @@ export default function Main({getActiveNote,updateNote}){
 
          <div className="app-main-note-preview">
              <h3 className="preview-title">{getActiveNote.title}</h3>
-             <div className="markdown-preview">
+             <ReactMarkdown className="markdown-preview">
              {getActiveNote.body}
-             </div>
+             </ReactMarkdown>
          </div>
      </div>
     )
