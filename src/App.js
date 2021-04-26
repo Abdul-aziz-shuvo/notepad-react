@@ -1,12 +1,16 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import Sidebar from './Sidebar'
 import Main from './Main'
 import uuid from 'react-uuid'
 import './App.css';
 
 function App() {
-  const [notes,setNote] = useState([]);
+  const [notes,setNote] = useState( localStorage.notes ? JSON.parse(localStorage.notes) : []);
   const [activeNote,setActiveNote] = useState(false) 
+
+  useEffect(() => {
+    localStorage.setItem('notes',JSON.stringify(notes))
+  },[notes])
 
   const addNote = () => {
     const newNote = {
