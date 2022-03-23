@@ -16,7 +16,7 @@ function App() {
     const newNote = {
       id:uuid(),
       title:'Untitled',
-      body:'fasdfasfasfasfasfasfasf',
+      body:'',
       lastModified:Date.now()
     }
     setNote([newNote,...notes])
